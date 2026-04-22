@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DentCare AI | Professional Healthcare</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-blue-bar"></div>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">DENTCARE <span style="color:var(--accent)">AI</span></a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+                <li><a href="{{ url_for('clinical_images') }}">Clinical Images</a></li>
+                <li><a href="{{ url_for('xray_data') }}">X-Ray Data</a></li>
+                <li><a href="#about-section">About</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>DENTCARE <span style="color:var(--accent)">AI</span></h1>
+                <p style="font-size: 1.2rem; max-width: 600px; margin-top: 10px;">Smart Dental Detection Made Simple. Helping you detect dental problems early and easily using Artificial Intelligence.</p>
+                <div style="margin-top: 25px;">
+                    <a href="#tools" class="pro-button" style="background: var(--accent); color: white;">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" style="background: var(--bg-secondary); padding: 60px 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem;">Select <span style="color:var(--accent)">Diagnostic Tool</span></h2>
+                <div class="tool-grid">
+                    <div class="about-card">
+                        <i class="fas fa-camera-retro" style="font-size:3.5rem; color:var(--accent); margin-bottom:20px;"></i>
+                        <h3>Clinical Images</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Upload a clinical image of your teeth taken with a camera or mobile phone for immediate analysis.</p>
+                        <a href="{{ url_for('clinical_images') }}" class="pro-button">Open Tool</a>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-x-ray" style="font-size:3.5rem; color:var(--accent); margin-bottom:20px;"></i>
+                        <h3>X-Ray Image</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Upload a dental X-ray or OPG image to detect cavities, implants, and impacted teeth.</p>
+                        <a href="{{ url_for('xray_data') }}" class="pro-button">Open Tool</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section" style="padding: 80px 20px; background: #fff;">
+            <div style="max-width: 1100px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <span style="background: var(--accent); color: white; padding: 6px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: bold;">ABOUT THE PROJECT</span>
+                    <h2 style="margin-top: 20px; font-size: 2.5rem;">DentCare AI </h2>
+                    <p style="color: var(--text-secondary); margin-top: 25px; font-size: 1.15rem; line-height: 1.8; max-width: 900px; margin: 25px auto;">
+                        DentCare is an AI-powered system developed by <strong>AI Spark Squad</strong>, under the supervision of <strong>Dr. Bilal Khan</strong>. 
+                        It analyzes dental clinical images and X-ray images using advanced AI-based image analysis to detect conditions such as cavities, impacted teeth, fillings, and implants. The system provides clear and accurate results to support dental assessment.
+
+The main goal of DentCare is to deliver fast, simple, and reliable dental detection for better understanding of dental conditions.
+                    </p>
+                </div>
+
+                <div style="display: flex; gap: 50px; align-items: center; background: #f9fbfc; padding: 50px; border-radius: 20px;">
+                    <div style="flex: 1.2;">
+                        <h3 style="color: var(--accent); margin-bottom: 20px; font-size: 1.8rem;">AI Spark Squad</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.7;">
+                            AI Spark Squad is a student team including <strong>Umar Ayoub, Saad Ali Shah, and Muhammad Ismail</strong>, 
+                            working under the supervision of <strong>Dr. Bilal Khan</strong>. 
+                            The team works on AI projects to solve real-life problems. Their focus is to build simple and useful systems that are easy for everyone to understand and use.
+                        </p>
+                    </div>
+                    <div style="flex: 0.8; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">Umar Ayoub</div>
+                        <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">Saad Ali Shah</div>
+                        <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">M. Ismail</div>
+                        <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">Dr. Bilal Khan</div>
+                        <!-- <div style="background: var(--accent); color: white; padding: 20px; border-radius: 10px; text-align: center;">Dr. Bilal Khan</div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DentCare AI | Team: AI Spark Squad | Supervisor: Dr. Bilal Khan</p>
+    </footer>
+</body>
+</html>

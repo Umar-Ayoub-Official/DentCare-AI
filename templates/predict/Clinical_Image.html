@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DentCare AI | Clinical Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="top-blue-bar"></div>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">DENTCARE <span style="color:var(--accent)">AI</span></a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('clinical_images') }}" class="active">Clinical Images</a></li>
+                <li><a href="{{ url_for('xray_data') }}">X-Ray Data</a></li>
+                <li><a href="{{ url_for('home') }}#about">About</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="section-title">Clinical <span style="color:var(--accent)">Image</span></h1>
+        </div>
+
+        <div class="ws-card">
+            <div class="ws-pillar">
+                <div class="ws-header">
+                    <h3>Upload Image</h3>
+                    <button class="pro-button" onclick="document.getElementById('imageUpload').click()">Browse</button>
+                    <input type="file" id="imageUpload" hidden accept="image/*">
+                </div>
+                <div class="ws-display">
+                    <i class="fas fa-image" id="uploadIcon" style="font-size: 3rem; color: #b0c4de;"></i>
+                    <button class="ws-delete" id="deleteBtn"><i class="fas fa-times"></i></button>
+                    <img id="previewImg" src="" style="display:none;">
+                </div>
+            </div>
+
+            <div class="ws-divider"></div>
+
+            <div class="ws-pillar">
+                <div class="ws-header">
+                    <h3>Analysis Result</h3>
+                    <button class="pro-button" id="analyzeBtn">Analyse Image</button>
+                </div>
+                <div class="ws-display">
+                    <p id="resultPlaceholder" style="color: #b0c4de; font-weight: 600;">Awaiting Analysis...</p>
+                    <div class="ws-overlay" id="imgOverlay">
+                        <button class="btn-action" id="btnFullView"><i class="fas fa-expand"></i> Full View</button>
+                        <button class="btn-action" id="btnSave"><i class="fas fa-download"></i> Save</button>
+                    </div>
+                    <img id="detectedResultImg" src="" style="display:none;">
+                </div>
+            </div>
+
+            <div class="ws-divider"></div>
+
+            <div class="ws-pillar">
+                <div class="ws-header">
+                    <h3>Diagnostic Report</h3>
+                    <div id="reportActions" style="display: none; gap: 5px;">
+                        <button class="pro-button" id="btnPDF" title="Download PDF" style="padding: 4px 8px; font-size: 0.7rem;"><i class="fas fa-file-pdf"></i> PDF</button>
+                        
+                        <div style="position: relative; display: inline-block;">
+                            <button class="pro-button" id="btnShare" title="Share Report" style="padding: 4px 8px; font-size: 0.7rem;"><i class="fas fa-share-alt"></i> Share</button>
+                            <div id="shareMenu" style="display: none; position: absolute; right: 0; background: white; border: 1px solid #ddd; border-radius: 4px; z-index: 100; width: 120px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                                <a id="shareWA" href="#" target="_blank" style="display: block; padding: 8px; text-decoration: none; color: #25D366; font-size: 0.8rem;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a id="shareGmail" href="#" target="_blank" style="display: block; padding: 8px; text-decoration: none; color: #DB4437; font-size: 0.8rem; border-top: 1px solid #eee;"><i class="fas fa-envelope"></i> Gmail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="reportArea">
+                    <p style="color: #576675; font-style: italic; padding: 10px;">No analysis performed yet.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="fullViewSection" style="display:none; text-align:center; margin-top:40px; padding-bottom:80px;">
+            <h2 style="margin-bottom:20px;">Detailed <span style="color:var(--accent)">Full View</span></h2>
+            <img id="largeResultImg" src="" style="max-width:100%; border:6px solid #fff; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DentCare AI | Team: AI Spark Squad</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/Clinical_Image.js') }}"></script>
+</body>
+</html>
