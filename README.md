@@ -1,20 +1,20 @@
 # DentCare AI: Automated Dental Pathologies Detection 🦷
 
-DentCare AI ek advanced diagnostic assistant hai jo Artificial Intelligence (YOLOv8 & RT-DETR) ko use karte hue dental X-rays (OPG) aur clinical images se cavities, fillings, aur impacted teeth detect karta hai. Ye system dentists ko fast aur accurate diagnosis mein madad dene ke liye design kiya gaya hai.
+DentCare AI is an advanced diagnostic assistant that leverages state-of-the-art Artificial Intelligence (**YOLOv8 & RT-DETR**) to detect dental issues such as **cavities, fillings, and impacted teeth** from both clinical photographs and X-ray (OPG) images. This system is designed to provide dentists with fast, accurate, and automated diagnostic support.
 
 ## 🛠️ Project Architecture & Methodology
-Is project mein dual-pipeline approach use ki gayi hai:
-1. **Clinical Stream:** Visible dental issues ke liye instance segmentation.
-2. **Radiograph (X-ray) Stream:** OPG images se deep-seated issues ki detection.
+The project utilizes a dual-pipeline approach to handle diverse dental data:
+1. **Clinical Stream:** Employs **Instance Segmentation** for identifying visible dental pathologies.
+2. **Radiograph (X-ray) Stream:** Utilizes specialized object detection for deep-seated issues in OPG images.
 
 ![Methodology Diagram](docs/methodology.png)
 *Figure 1: Deep Learning Pipeline for Dental Medical Imaging*
 
 ## 📊 Results & Performance
-Humne different YOLOv8 variants aur RT-DETR ko compare kiya taake best accuracy hasil ho sake.
+We conducted extensive comparative analysis across various YOLOv8 variants and RT-DETR architectures to achieve optimal diagnostic accuracy.
 
 ### 1. Clinical Dataset (Instance Segmentation)
-Clinical images par **YOLOv8l-seg** ne sab se behtareen results diye:
+For clinical imagery, **YOLOv8l-seg (Large)** delivered the most robust performance:
 
 | Model Architecture | Precision | Recall | mAP@50 |
 | :--- | :--- | :--- | :--- |
@@ -24,7 +24,7 @@ Clinical images par **YOLOv8l-seg** ne sab se behtareen results diye:
 ![Clinical Results](docs/Clinical_results_table.png)
 
 ### 2. X-ray (OPG) Dataset (Detection)
-X-ray analysis ke liye **YOLOv8n-OBB** (Oriented Bounding Boxes) sab se fast aur accurate raha:
+For radiograph analysis, **YOLOv8n-OBB** (Oriented Bounding Boxes) proved to be the most efficient and accurate:
 
 | Model | Precision (%) | Recall (%) | mAP@50 (%) |
 | :--- | :--- | :--- | :--- |
@@ -33,18 +33,24 @@ X-ray analysis ke liye **YOLOv8n-OBB** (Oriented Bounding Boxes) sab se fast aur
 
 ![X-ray Results](docs/X_Ray_results_table.png)
 
+## 📥 Trained Model Weights
+Due to GitHub's file size limitations, the final trained models are hosted on Google Drive. You can download them below:
+
+* 🚀 **[Download X-Ray Detection Model (YOLOv8-OBB)](https://drive.google.com/file/d/12a25ypjT82VXol_-w6CF_0Nkh2wzSjXt/view?usp=sharing)**
+* 📸 **[Download Clinical Segmentation Model (YOLOv8l-seg)](https://drive.google.com/file/d/1Ya9aDH0DcMASPXLpBmxlGjBA-Ebb5Gma/view?usp=sharing)**
+
 ## 🚀 Key Features
-- **Dual-Mode Detection:** Clinical aur OPG dono types ki images support karta hai.
-- **High Precision:** X-rays par **95.2% mAP** achieve kiya gaya.
-- **Real-time Inference:** Fast processing taake clinical environment mein use ho sake.
-- **Full-Stack Integration:** Backend (Flask/Django) aur Frontend (React Native/Web) ke sath complete system.
+- **Dual-Mode Detection:** Comprehensive support for both clinical and OPG (X-ray) images.
+- **High Precision:** Achieved a top mAP of **95.2%** on X-ray datasets.
+- **Real-time Inference:** Optimized for rapid processing in clinical environments.
+- **Full-Stack Integration:** Complete system featuring a Flask/Django backend and a responsive user interface.
 
 ## 📂 Repository Structure
-- `backend/`: API integration aur Model inference code.
-- `frontend/`: User interface aur dashboard code.
-- `models/`: Trained `.pt` weights (YOLOv8 variants).
-- `docs/`: Methodology diagrams aur detailed results.
-- `app.py`: Main application script.
+- `backend/`: API integration and model inference logic.
+- `frontend/`: User interface and diagnostic dashboard.
+- `models/`: Placeholder for weights (refer to download links above).
+- `docs/`: Methodology diagrams and detailed performance metrics.
+- `app.py`: Main application entry point.
 
 ---
-**Developed by Umar Ayoub** *Final Year Project (AI Specialization) - UET Mardan*
+**Developed by Umar Ayoub** *Final Year Project (AI Specialization) - University of Engineering and Technology (UET) Mardan*
